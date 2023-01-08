@@ -1,5 +1,3 @@
-function App() {
-  return <div>asdasd</div>;
-}
-
-export default App;
+export const App: React.FC = () => {
+  return <div>asdfasdfasdf</div>;
+};
