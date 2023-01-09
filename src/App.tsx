@@ -4,6 +4,7 @@ import { Weather } from './components/Weather';
 
 export const App: React.FC = () => {
   const [city, setCity] = useState<string | null>(null);
+  const [system, setSystem] = useState<'metric' | 'imperial'>('metric');
 
   const changeCity = (city: string) => {
     setCity(city);
@@ -12,7 +13,7 @@ export const App: React.FC = () => {
   return (
     <>
       <SearchBar setParentState={changeCity} />
-      {city ? <Weather city={city} /> : null}
+      {city ? <Weather city={city} system={system} /> : null}
     </>
   );
 };
