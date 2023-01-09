@@ -12,7 +12,7 @@ export const App: React.FC = () => {
   return (
     <>
       <SearchBar setParentState={changeCity} />
-      {city ? <Weather city={city} /> : 'nothing'}
+      {city ? <Weather city={city} /> : null}
     </>
   );
 };
