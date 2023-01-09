@@ -8,3 +8,7 @@
 
 - background changes with the current weather (something nice, not a crap static photo like the one before)
 - the text input has auto completion
+
+# Important:
+
+- dont let the user break the app by spamming or typing when they shouldnt. react query has options like isLoading and whatnot to disable
