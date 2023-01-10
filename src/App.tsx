@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar';
-import { Weather } from './components/Weather';
+import { MainWeather } from './components/MainWeather';
 
 export const App: React.FC = () => {
   const [city, setCity] = useState<string | null>(null);
@@ -13,7 +13,7 @@ export const App: React.FC = () => {
   return (
     <>
       <SearchBar setParentState={changeCity} />
-      {city ? <Weather city={city} system={system} /> : null}
+      {city ? <MainWeather city={city} system={system} /> : null}
     </>
   );
 };

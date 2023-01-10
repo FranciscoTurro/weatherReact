@@ -1,14 +1,17 @@
 # User stories:
 
 - a user can type the name of a city in a text input
-- after choosing a city, the app will display the current weather for the city, along with additional information, and the weather for the next few days
-- a user can toggle the temperature between celsius and fahrenheit
+- after choosing a city, the app will display the current weather for the city, along with additional information, and the forecast for the next few days
+- a user can toggle between imperial and metric system
 
 # If possible:
 
-- background changes with the current weather (something nice, not a crap static photo like the one before)
+- background changes with the current weather, like mobile weather apps
 - the text input has auto completion
 
-# Important:
+# IMPORTANT!:
 
 - dont let the user break the app by spamming or typing when they shouldnt. react query has options like isLoading and whatnot to disable
+- display an error when user mistypes the city name
+- can use current time and sunrise/set to calculate if it's day or night time
+- try to find better icons

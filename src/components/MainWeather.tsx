@@ -1,13 +1,14 @@
 import { useQuery } from 'react-query';
 import { fetchCity } from '../api/fetchCity';
 import { BarLoader } from 'react-spinners';
+import { MainWeatherCard } from './MainWeatherCard';
 
 interface Props {
   city: string;
   system: 'metric' | 'imperial';
 }
 
-export const Weather: React.FC<Props> = ({ city, system }) => {
+export const MainWeather: React.FC<Props> = ({ city, system }) => {
   const { data, isLoading } = useQuery(
     [city, system],
     () => fetchCity(city, 'weather', system),
@@ -20,7 +21,7 @@ export const Weather: React.FC<Props> = ({ city, system }) => {
   if (isLoading)
     return (
       <div className="flex flex-col items-center pt-16">
-        <BarLoader color="white" />
+        <BarLoader color="red" />
       </div>
     );
   if (data.cod !== 200) return null;
@@ -34,24 +35,16 @@ export const Weather: React.FC<Props> = ({ city, system }) => {
   } = data;
 
   return (
-    <div className="flex flex-col items-center pt-16 ">
-      <p>{temp}</p>
-      <img
-        src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-        alt={description}
+    <div className="flex gap-72 justify-center">
+      <MainWeatherCard
+        cityName={name}
+        country={country}
+        description={description}
+        iconID={icon}
+        mainTemp={temp}
+        maxTemp={temp_max}
+        minTemp={temp_min}
       />
-      <p>{description}</p>
-      <p>{`${name}, ${country}`}</p>
-      <div className="flex gap-4">
-        <div className="text-center">
-          <p>{temp_max}</p>
-          <p>Max temp</p>
-        </div>
-        <div className="text-center">
-          <p>{temp_min}</p>
-          <p>Min temp</p>
-        </div>
-      </div>
     </div>
   );
 };
