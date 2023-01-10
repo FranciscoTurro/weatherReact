@@ -12,6 +12,6 @@
 # IMPORTANT!:
 
 - dont let the user break the app by spamming or typing when they shouldnt. react query has options like isLoading and whatnot to disable
-- display an error when user mistypes the city name
 - can use current time and sunrise/set to calculate if it's day or night time
 - try to find better icons
+- instead of pop, show time in the chosen city

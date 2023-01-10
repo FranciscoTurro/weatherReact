@@ -12,7 +12,7 @@ export const SearchBar: React.FC<Props> = ({
   return (
     <div className="flex flex-col items-center p-2">
       <form
-        className="w-1/3"
+        className="w-1/4"
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(state);
