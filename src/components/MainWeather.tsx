@@ -2,6 +2,7 @@ import { useQuery } from 'react-query';
 import { fetchCity } from '../api/fetchCity';
 import { BarLoader } from 'react-spinners';
 import { MainWeatherCard } from './MainWeatherCard';
+import { uppercase } from '../util/utilFunctions';
 
 interface Props {
   city: string;
@@ -14,7 +15,7 @@ export const MainWeather: React.FC<Props> = ({ city, system }) => {
     () => fetchCity(city, 'weather', system),
     {
       refetchOnWindowFocus: false,
-      staleTime: Infinity,
+      staleTime: 600000,
     }
   );
 
@@ -24,7 +25,12 @@ export const MainWeather: React.FC<Props> = ({ city, system }) => {
         <BarLoader color="red" />
       </div>
     );
-  if (data.cod !== 200) return null;
+  if (data.cod !== 200)
+    return (
+      <div className="flex flex-col items-center pt-16 text-7xl">
+        {uppercase(data.message)}
+      </div>
+    );
 
   const {
     sys: { sunrise, sunset, country },
