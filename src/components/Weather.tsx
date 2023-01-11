@@ -3,13 +3,15 @@ import { fetchCity } from '../api/fetchCity';
 import { BarLoader } from 'react-spinners';
 import { MainWeatherCard } from './MainWeatherCard';
 import { uppercase } from '../util/utilFunctions';
+import { SecondaryInfo } from './SecondaryInfo';
+import { Sun_rise_set } from './Sun_rise_set';
 
 interface Props {
   city: string;
   system: 'metric' | 'imperial';
 }
 
-export const MainWeather: React.FC<Props> = ({ city, system }) => {
+export const Weather: React.FC<Props> = ({ city, system }) => {
   const { data, isLoading } = useQuery(
     [city, system],
     () => fetchCity(city, 'weather', system),
@@ -42,6 +44,7 @@ export const MainWeather: React.FC<Props> = ({ city, system }) => {
 
   return (
     <div className="flex gap-72 justify-center">
+      <Sun_rise_set sunrise={sunrise} sunset={sunset} />
       <MainWeatherCard
         cityName={name}
         country={country}
@@ -50,6 +53,12 @@ export const MainWeather: React.FC<Props> = ({ city, system }) => {
         mainTemp={temp}
         maxTemp={temp_max}
         minTemp={temp_min}
+      />
+      <SecondaryInfo
+        feelsLike={feels_like}
+        humidity={humidity}
+        pressure={pressure}
+        windSpeed={speed}
       />
     </div>
   );
