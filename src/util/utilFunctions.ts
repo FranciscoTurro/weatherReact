@@ -4,7 +4,7 @@ export const uppercase = (word: string) => {
 
 export const unixToHours = (unix: number) => {
   let date = new Date(unix * 1000);
-  let hours = date.getUTCHours();
-  let minutes = '0' + date.getUTCMinutes();
+  let hours = date.getHours();
+  let minutes = '0' + date.getMinutes();
   return hours + ':' + minutes.substr(-2);
 };

@@ -20,7 +20,7 @@ export const MainWeatherCard: React.FC<Props> = ({
   minTemp,
 }) => {
   return (
-    <div className="flex flex-col items-center mt-20">
+    <div className="flex flex-col items-center mt-4 pt-12 pb-10">
       <h5 className="text-7xl font-semibold">{`${Math.round(mainTemp)} C°`}</h5>
       <img
         className="w-44 h-44"
