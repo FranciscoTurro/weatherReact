@@ -1,19 +1,10 @@
-import { useState } from 'react';
-import { SearchBar } from './components/SearchBar';
-import { Weather } from './components/Weather';
+import { AppRouter } from './AppRouter';
+import { ContextProvider } from './context/ContextProvider';
 
 export const App: React.FC = () => {
-  const [city, setCity] = useState<string | null>(null);
-  const [system, setSystem] = useState<'metric' | 'imperial'>('metric');
-
-  const changeCity = (city: string) => {
-    setCity(city);
-  };
-
   return (
-    <>
-      <SearchBar setParentState={changeCity} />
-      {city ? <Weather city={city} system={system} /> : null}
-    </>
+    <ContextProvider>
+      <AppRouter />
+    </ContextProvider>
   );
 };

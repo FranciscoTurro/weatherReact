@@ -1,12 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-interface Props {
-  setParentState: (argument: string) => void;
-}
+export const SearchBar: React.FC = () => {
+  const navigate = useNavigate();
 
-export const SearchBar: React.FC<Props> = ({
-  setParentState: handleSubmit,
-}) => {
   const [state, setState] = useState('');
 
   return (
@@ -15,7 +12,7 @@ export const SearchBar: React.FC<Props> = ({
         className="w-1/4"
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit(state);
+          navigate(`/${state}`);
           setState('');
         }}
       >
