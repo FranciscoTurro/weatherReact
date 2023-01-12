@@ -28,7 +28,7 @@ export const SecondaryInfo: React.FC<Props> = ({
         </div>
         <div className="text-center">
           <h5>Pressure:</h5>
-          <h5>{`${Math.round(pressure / 1000)} atm`}</h5>
+          <h5>{`${pressure / 1000} atm`}</h5>
         </div>
       </div>
     </div>

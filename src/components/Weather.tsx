@@ -4,7 +4,6 @@ import { BarLoader } from 'react-spinners';
 import { MainWeatherCard } from './MainWeatherCard';
 import { uppercase } from '../util/utilFunctions';
 import { SecondaryInfo } from './SecondaryInfo';
-import { Sun_rise_set } from './Sun_rise_set';
 
 interface Props {
   city: string;
@@ -35,7 +34,7 @@ export const Weather: React.FC<Props> = ({ city, system }) => {
     );
 
   const {
-    sys: { sunrise, sunset, country },
+    sys: { country },
     name,
     main: { temp, feels_like, temp_min, temp_max, pressure, humidity },
     wind: { speed },
@@ -43,8 +42,7 @@ export const Weather: React.FC<Props> = ({ city, system }) => {
   } = data;
 
   return (
-    <div className="flex gap-72 justify-center">
-      <Sun_rise_set sunrise={sunrise} sunset={sunset} />
+    <div className="flex justify-center gap-40 p-20">
       <MainWeatherCard
         cityName={name}
         country={country}
