@@ -7,19 +7,19 @@ interface Props {
 
 export const ContextProvider: React.FC<Props> = ({ children }) => {
   const [currentCity, setCurrentCity] = useState<string>('');
-  const [unitSystem, setUnitSystem] = useState<'metric' | 'imperial'>('metric');
+  const [isMetric, setIsMetric] = useState(true);
 
   const changeCity = (cityName: string) => {
     setCurrentCity(cityName);
   };
 
-  const changeUnitSystem = (unitSystem: 'metric' | 'imperial') => {
-    setUnitSystem(unitSystem);
+  const toggleUnitSystem = () => {
+    setIsMetric(!isMetric);
   };
 
   return (
     <Context.Provider
-      value={{ currentCity, unitSystem, changeCity, changeUnitSystem }}
+      value={{ currentCity, isMetric, changeCity, toggleUnitSystem }}
     >
       {children}
     </Context.Provider>

@@ -1,19 +1,22 @@
 import { useQuery } from 'react-query';
-import { fetchCity } from '../api/fetchCity';
+import { fetchCity } from '../../api/fetchCity';
 import { BarLoader } from 'react-spinners';
 import { MainWeatherCard } from './MainWeatherCard';
-import { uppercase } from '../util/utilFunctions';
+import { uppercase } from '../../util/utilFunctions';
 import { SecondaryInfo } from './SecondaryInfo';
+import { Context } from '../../context/Context';
+import { useContext } from 'react';
 
 interface Props {
   city: string;
-  system: 'metric' | 'imperial';
 }
 
-export const Weather: React.FC<Props> = ({ city, system }) => {
+export const Weather: React.FC<Props> = ({ city }) => {
+  const appContext = useContext(Context);
+
   const { data, isLoading } = useQuery(
-    [city, system],
-    () => fetchCity(city, 'weather', system),
+    [city, appContext!.isMetric],
+    () => fetchCity(city, 'weather', appContext!.isMetric),
     {
       refetchOnWindowFocus: false,
       staleTime: 600000,

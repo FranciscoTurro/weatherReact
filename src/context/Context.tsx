@@ -2,9 +2,9 @@ import { createContext } from 'react';
 
 interface ContextValueInterface {
   currentCity: string;
-  unitSystem: 'metric' | 'imperial';
+  isMetric: boolean;
   changeCity: (cityName: string) => void;
-  changeUnitSystem: (unitSystem: 'metric' | 'imperial') => void;
+  toggleUnitSystem: () => void;
 }
 
 export const Context = createContext<ContextValueInterface | null>(null);

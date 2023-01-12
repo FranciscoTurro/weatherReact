@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { SearchBar } from '../components/SearchBar';
-import { Weather } from '../components/Weather';
+import { Weather } from '../components/Weather/Weather';
 import { Context } from '../context/Context';
 
 export const CityPage: React.FC = () => {
@@ -9,12 +8,7 @@ export const CityPage: React.FC = () => {
 
   const contextValue = useContext(Context);
 
-  return (
-    <>
-      <SearchBar />
-      <Weather city={city!} system={contextValue!.unitSystem} />
-    </>
-  );
+  return <Weather city={city!} />;
 };
 
 export default CityPage;

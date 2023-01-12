@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
+
 interface Props {
   humidity: string;
   feelsLike: number;
@@ -11,6 +14,11 @@ export const SecondaryInfo: React.FC<Props> = ({
   pressure,
   windSpeed,
 }) => {
+  const appContext = useContext(Context);
+
+  const temperatureMeasurement = appContext!.isMetric ? 'C°' : 'F°';
+  const windSpeedMeasurement = appContext!.isMetric ? 'm/s' : 'mph';
+
   return (
     <div className="bg-white text-black flex items-center mt-20 mb-20 p-10 pb-20 rounded-lg">
       <div className="text-2xl grid grid-cols-2 gap-12 h-min">
@@ -20,11 +28,11 @@ export const SecondaryInfo: React.FC<Props> = ({
         </div>
         <div className="text-center">
           <h5>Feels like:</h5>
-          <h5>{`${Math.round(feelsLike)} C°`}</h5>
+          <h5>{`${Math.round(feelsLike)} ${temperatureMeasurement}`}</h5>
         </div>
         <div className="text-center">
           <h5>Wind speed:</h5>
-          <h5>{`${windSpeed} km/h`}</h5>
+          <h5>{`${windSpeed} ${windSpeedMeasurement}`}</h5>
         </div>
         <div className="text-center">
           <h5>Pressure:</h5>
