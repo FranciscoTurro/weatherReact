@@ -11,7 +11,8 @@ export const SearchBar: React.FC = () => {
       className="w-1/4"
       onSubmit={(e) => {
         e.preventDefault();
-        navigate(`/${state}`);
+        const city = state.replace(/\s+/g, '+');
+        navigate(`/${city}`);
         setState('');
       }}
     >

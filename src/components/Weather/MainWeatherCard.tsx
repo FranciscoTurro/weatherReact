@@ -26,7 +26,7 @@ export const MainWeatherCard: React.FC<Props> = ({
   const temperatureMeasurement = appContext!.isMetric ? 'C°' : 'F°';
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="w-1/4 flex flex-col items-center">
       <h5 className="text-7xl font-semibold">{`${Math.round(
         mainTemp
       )} ${temperatureMeasurement}`}</h5>
