@@ -46,7 +46,7 @@ export const Weather: React.FC<Props> = ({ city }) => {
   } = data;
 
   return (
-    <div className="">
+    <>
       <div className="flex justify-center gap-40 p-20">
         <MainWeatherCard
           cityName={name}
@@ -65,6 +65,6 @@ export const Weather: React.FC<Props> = ({ city }) => {
         />
       </div>
       <Forecast city={city} />
-    </div>
+    </>
   );
 };

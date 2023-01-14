@@ -13,6 +13,8 @@ interface Props {
 export const Forecast: React.FC<Props> = ({ city }) => {
   const appContext = useContext(Context);
 
+  const temperatureMeasurement = appContext!.isMetric ? 'C°' : 'F°';
+
   const { data, isLoading } = useQuery(
     [`${city}-forecast`, appContext!.isMetric],
     () => fetchCity(city, 'forecast', appContext!.isMetric),
@@ -44,6 +46,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     weather: [
       {
         description: string;
+        icon: string;
       }
     ];
   }
@@ -55,6 +58,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     temp_min: number;
     temp_max: number;
     description: string;
+    iconID: string;
   }
 
   const getFiveDayForecast = (
@@ -81,6 +85,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
           temp_min: forecast.main.temp_min,
           temp_max: forecast.main.temp_max,
           description: forecast.weather[0].description,
+          iconID: forecast.weather[0].icon,
         };
         dailyForecast.push(existingForecast);
       } else {
@@ -102,9 +107,29 @@ export const Forecast: React.FC<Props> = ({ city }) => {
   const fiveDayForecast = getFiveDayForecast(data);
 
   return (
-    <div>
+    <div className="flex justify-center gap-14 text-sm">
       {fiveDayForecast.map((item) => {
-        return <div>{JSON.stringify(item)}</div>;
+        return (
+          <div className="bg-black text-white border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center">
+            <h5>
+              {item.date.toLocaleDateString('en-UK', {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit',
+              })}
+            </h5>
+            <div className="text-md flex gap-1 justify-center">
+              <h5>{`${Math.round(item.temp_min)}`} Min</h5>
+              <h5>{`${Math.round(item.temp_max)}`} Max</h5>
+            </div>
+            <img
+              className="w-10"
+              src={`http://openweathermap.org/img/wn/${item.iconID}@2x.png`}
+              alt={item.description}
+            />
+            <h5>{uppercase(item.description)}</h5>
+          </div>
+        );
       })}
     </div>
   );
