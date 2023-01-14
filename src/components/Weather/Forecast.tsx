@@ -1,10 +1,11 @@
+import moment from 'moment-timezone';
 import { useContext } from 'react';
 import { useQuery } from 'react-query';
-import { json } from 'react-router-dom';
 import { BarLoader } from 'react-spinners';
 import { fetchCity } from '../../api/fetchCity';
 import { Context } from '../../context/Context';
 import { uppercase } from '../../util/utilFunctions';
+import tz from 'tz-lookup';
 
 interface Props {
   city: string;
@@ -54,7 +55,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     list: Forecast[];
   }
   interface FiveDayForecast {
-    date: Date;
+    date: moment.Moment;
     temp_min: number;
     temp_max: number;
     description: string;
@@ -67,17 +68,13 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     const dailyForecast: FiveDayForecast[] = [];
 
     forecastData.list.forEach((forecast) => {
-      const forecastDate = new Date(forecast.dt * 1000);
+      const forecastDate = moment
+        .tz(forecast.dt * 1000, tz(data.city.coord.lat, data.city.coord.lon))
+        .startOf('day');
 
-      let existingForecast = dailyForecast.find((dailyForecast) => {
-        const isSameDay =
-          dailyForecast.date.getDate() === forecastDate.getDate();
-        const isSameMonth =
-          dailyForecast.date.getMonth() === forecastDate.getMonth();
-        const isSameYear =
-          dailyForecast.date.getFullYear() === forecastDate.getFullYear();
-        return isSameDay && isSameMonth && isSameYear;
-      });
+      let existingForecast = dailyForecast.find((dailyForecast) =>
+        moment(dailyForecast.date).startOf('day').isSame(forecastDate)
+      );
 
       if (!existingForecast) {
         existingForecast = {
@@ -108,19 +105,13 @@ export const Forecast: React.FC<Props> = ({ city }) => {
 
   return (
     <div className="flex justify-center gap-14 text-sm">
-      {fiveDayForecast.map((item) => {
+      {fiveDayForecast.map((item, index) => {
         return (
           <div
-            key={item.date.toString()}
+            key={index}
             className="bg-black text-white border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center"
           >
-            <h5>
-              {item.date.toLocaleDateString('en-UK', {
-                day: '2-digit',
-                month: '2-digit',
-                year: '2-digit',
-              })}
-            </h5>
+            <h5>{item.date.format('DD/MM')}</h5>
             <div className="text-md flex gap-1 justify-center">
               <h5>{`${Math.round(item.temp_min)}`} Min</h5>
               <h5>{`${Math.round(item.temp_max)}`} Max</h5>
