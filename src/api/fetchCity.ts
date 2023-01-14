@@ -1,6 +1,3 @@
-import { useContext } from 'react';
-import { Context } from '../context/Context';
-
 export const fetchCity = async (
   cityName: string,
   dataType: 'weather' | 'forecast',
