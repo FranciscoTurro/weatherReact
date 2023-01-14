@@ -110,7 +110,10 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     <div className="flex justify-center gap-14 text-sm">
       {fiveDayForecast.map((item) => {
         return (
-          <div className="bg-black text-white border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center">
+          <div
+            key={item.date.toString()}
+            className="bg-black text-white border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center"
+          >
             <h5>
               {item.date.toLocaleDateString('en-UK', {
                 day: '2-digit',
