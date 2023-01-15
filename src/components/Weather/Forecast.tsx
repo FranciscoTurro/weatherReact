@@ -6,6 +6,7 @@ import { fetchCity } from '../../api/fetchCity';
 import { Context } from '../../context/Context';
 import { uppercase } from '../../util/utilFunctions';
 import tz from 'tz-lookup';
+import { getWeatherImage } from '../../util/getWeatherImage';
 
 interface Props {
   city: string;
@@ -13,8 +14,6 @@ interface Props {
 
 export const Forecast: React.FC<Props> = ({ city }) => {
   const appContext = useContext(Context);
-
-  const temperatureMeasurement = appContext!.isMetric ? 'C°' : 'F°';
 
   const { data, isLoading } = useQuery(
     [`${city}-forecast`, appContext!.isMetric],
@@ -109,7 +108,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
         return (
           <div
             key={index}
-            className="bg-black text-white border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center"
+            className="bg-white text-black border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center"
           >
             <h5>{item.date.format('DD/MM')}</h5>
             <div className="text-md flex gap-1 justify-center">
@@ -118,7 +117,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
             </div>
             <img
               className="w-10"
-              src={`http://openweathermap.org/img/wn/${item.iconID}@2x.png`}
+              src={getWeatherImage(item.iconID)}
               alt={item.description}
             />
             <h5>{uppercase(item.description)}</h5>

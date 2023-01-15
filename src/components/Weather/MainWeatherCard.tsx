@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
+import { getWeatherImage } from '../../util/getWeatherImage';
 import { uppercase } from '../../util/utilFunctions';
 
 interface Props {
@@ -32,7 +33,7 @@ export const MainWeatherCard: React.FC<Props> = ({
       )} ${temperatureMeasurement}`}</h5>
       <img
         className="w-44 h-44"
-        src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
+        src={getWeatherImage(iconID)}
         alt={description}
       />
       <div className="flex flex-col gap-3 items-center">

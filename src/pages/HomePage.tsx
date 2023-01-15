@@ -3,7 +3,6 @@ import { useQuery } from 'react-query';
 import { BarLoader } from 'react-spinners';
 import { fetchCityName } from '../api/fetchCityName';
 import { Weather } from '../components/Weather/Weather';
-import { Context } from '../context/Context';
 
 export const HomePage: React.FC = () => {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });

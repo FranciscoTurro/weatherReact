@@ -20,7 +20,7 @@ export const SecondaryInfo: React.FC<Props> = ({
   const windSpeedMeasurement = appContext!.isMetric ? 'm/s' : 'mph';
 
   return (
-    <div className="bg-white text-black flex items-center mt-20 mb-20 p-10 pb-20 rounded-lg">
+    <div className="bg-black text-white flex items-center mt-20 mb-20 p-10 pb-20 rounded-lg">
       <div className="text-2xl grid grid-cols-2 gap-12 h-min">
         <div className="text-center ">
           <h5>Humidity:</h5>
