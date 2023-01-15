@@ -7,7 +7,6 @@ import { Context } from '../../context/Context';
 import { uppercase } from '../../util/utilFunctions';
 import tz from 'tz-lookup';
 import { getWeatherImage } from '../../util/getWeatherImage';
-import { time } from 'console';
 
 interface Props {
   city: string;
@@ -15,6 +14,8 @@ interface Props {
 
 export const Forecast: React.FC<Props> = ({ city }) => {
   const appContext = useContext(Context);
+  const milisecondsInSeconds = 1000;
+  const middleOfTheDay = '15';
 
   const { data, isLoading } = useQuery(
     [`${city}-forecast`, appContext!.isMetric],
@@ -73,8 +74,12 @@ export const Forecast: React.FC<Props> = ({ city }) => {
       const today = moment().tz(timezone).format('DD/MM');
 
       const forecastDate = moment
-        .tz(forecast.dt * 1000, timezone)
+        .tz(forecast.dt * milisecondsInSeconds, timezone)
         .format('DD/MM');
+
+      const forecastTime = moment
+        .tz(forecast.dt * milisecondsInSeconds, timezone)
+        .format('HH');
 
       if (forecastDate === today) return;
 
@@ -100,8 +105,11 @@ export const Forecast: React.FC<Props> = ({ city }) => {
           existingForecast.temp_max,
           forecast.main.temp_max
         );
-        existingForecast.description = forecast.weather[0].description;
-        existingForecast.iconID = forecast.weather[0].icon;
+
+        if (forecastTime === middleOfTheDay) {
+          existingForecast.description = forecast.weather[0].description;
+          existingForecast.iconID = forecast.weather[0].icon;
+        }
       }
     });
 
