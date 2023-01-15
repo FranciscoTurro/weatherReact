@@ -1,5 +1,5 @@
 # Todos:
 
-- if svgs colors can be changed, add light/dark mode toggle
-- add a FAQ page. explain how there is no autocomplete, cities with same name must suck it up and clarify it's a practice project
+- add a options button to the header, clicking it shows options (toggle dark/light mode, toggle metric/imperial)
+- add routes to all the footer links
 - deploy the thing

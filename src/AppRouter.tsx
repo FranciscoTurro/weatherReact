@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { CityPage } from './pages/CityPage';
 import { HomePage } from './pages/HomePage';
@@ -12,6 +13,7 @@ export const AppRouter = () => {
         <Route path=":city" element={<CityPage />} />
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
+      <Footer />
     </>
   );
 };
