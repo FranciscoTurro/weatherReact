@@ -7,6 +7,7 @@ import { Context } from '../../context/Context';
 import { uppercase } from '../../util/utilFunctions';
 import tz from 'tz-lookup';
 import { getWeatherImage } from '../../util/getWeatherImage';
+import { time } from 'console';
 
 interface Props {
   city: string;
@@ -54,7 +55,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     list: Forecast[];
   }
   interface FiveDayForecast {
-    date: moment.Moment;
+    date: string;
     temp_min: number;
     temp_max: number;
     description: string;
@@ -67,12 +68,18 @@ export const Forecast: React.FC<Props> = ({ city }) => {
     const dailyForecast: FiveDayForecast[] = [];
 
     forecastData.list.forEach((forecast) => {
-      const forecastDate = moment
-        .tz(forecast.dt * 1000, tz(data.city.coord.lat, data.city.coord.lon))
-        .startOf('day');
+      const timezone = tz(data.city.coord.lat, data.city.coord.lon);
 
-      let existingForecast = dailyForecast.find((dailyForecast) =>
-        moment(dailyForecast.date).startOf('day').isSame(forecastDate)
+      const today = moment().tz(timezone).format('DD/MM');
+
+      const forecastDate = moment
+        .tz(forecast.dt * 1000, timezone)
+        .format('DD/MM');
+
+      if (forecastDate === today) return;
+
+      let existingForecast = dailyForecast.find(
+        (item) => item.date === forecastDate
       );
 
       if (!existingForecast) {
@@ -94,6 +101,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
           forecast.main.temp_max
         );
         existingForecast.description = forecast.weather[0].description;
+        existingForecast.iconID = forecast.weather[0].icon;
       }
     });
 
@@ -110,7 +118,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
             key={index}
             className="bg-white text-black border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center"
           >
-            <h5>{item.date.format('DD/MM')}</h5>
+            <h5>{item.date}</h5>
             <div className="text-md flex gap-1 justify-center">
               <h5>{`${Math.round(item.temp_min)}`} Min</h5>
               <h5>{`${Math.round(item.temp_max)}`} Max</h5>
