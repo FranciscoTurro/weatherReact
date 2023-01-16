@@ -27,7 +27,7 @@ export const SpeedDial = () => {
     <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800  focus:ring-4 focus:ring-blue-300 focus:outline-none "
+        className="text-white flex items-center justify-center bg-custom_red rounded-full w-14 h-14 hover:bg-red-800  focus:ring-4 focus:ring-red-800 focus:outline-none "
       >
         <svg
           viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ export const SpeedDial = () => {
       >
         <button
           onClick={appContext!.toggleTheme}
-          className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200  shadow-sm   hover:bg-gray-50  focus:ring-4 focus:ring-gray-300 focus:outline-none "
+          className="flex justify-center items-center w-[52px] h-[52px] bg-custom_gray-200 dark:bg-custom_gray-700 rounded-full border border-none shadow-sm hover:bg-custom_gray-100 dark:hover:bg-custom_gray-600"
         >
           {appContext!.isLightMode ? (
             <svg
@@ -85,7 +85,7 @@ export const SpeedDial = () => {
 
         <button
           onClick={appContext!.toggleUnitSystem}
-          className="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200  hover:bg-gray-50  focus:ring-4 focus:ring-gray-300 focus:outline-none "
+          className="flex justify-center items-center w-[52px] h-[52px] bg-custom_gray-200 dark:bg-custom_gray-700 rounded-full border border-none shadow-sm hover:bg-custom_gray-100 dark:hover:bg-custom_gray-600"
         >
           {appContext!.isMetric ? (
             <svg

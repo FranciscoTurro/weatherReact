@@ -20,7 +20,7 @@ export const SearchBar: React.FC = () => {
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg
             aria-hidden="true"
-            className="w-5 h-5 text-black"
+            className="w-5 h-5 dark:text-custom_gray-200"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -39,12 +39,12 @@ export const SearchBar: React.FC = () => {
           type="search"
           autoComplete="off"
           id="default-search"
-          className="block w-full p-4 pl-10 text-sm text-black rounded-lg bg-white"
+          className="block w-full p-4 pl-10 text-md rounded-lg bg-custom_gray-200 dark:bg-custom_gray-700"
           required
         />
         <button
           type="submit"
-          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 "
+          className="text-white absolute right-2.5 bottom-2.5 bg-custom_red hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2 "
         >
           Search
         </button>

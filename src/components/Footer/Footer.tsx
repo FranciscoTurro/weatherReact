@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <footer className="absolute bottom-0 w-full p-4 text-white bg-black shadow md:flex md:items-center md:justify-between md:p-6">
+    <footer className="absolute bottom-0 w-full bg-custom_heavy_gray shadow md:flex md:items-center md:justify-between md:p-6">
       <span className="text-sm sm:text-center ">
         ©2023 Francisco Turró. No Rights Reserved.
       </span>

@@ -124,7 +124,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
         return (
           <div
             key={index}
-            className="bg-white text-black border-white border-2 w-32 h-28 rounded-lg flex flex-col items-center"
+            className="bg-custom_gray-200 dark:bg-custom_gray-800 w-32 h-28 rounded-lg flex flex-col items-center p-1"
           >
             <h5>{item.date}</h5>
             <div className="text-md flex gap-1 justify-center">
