@@ -1,5 +1,5 @@
 # Todos:
 
-- figure out where to put the toggle theme button. there is a commented out toggle in Header
-- add routes to all the footer links
+- add a color scheme
+- add routes to footer links
 - deploy the thing
