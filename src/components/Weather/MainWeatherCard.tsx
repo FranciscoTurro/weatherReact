@@ -33,7 +33,7 @@ export const MainWeatherCard: React.FC<Props> = ({
       )} ${temperatureMeasurement}`}</h5>
       <img
         className="w-44 h-44"
-        src={getWeatherImage(iconID)}
+        src={getWeatherImage(iconID, appContext!.isLightMode)}
         alt={description}
       />
       <div className="flex flex-col gap-3 items-center">

@@ -133,7 +133,7 @@ export const Forecast: React.FC<Props> = ({ city }) => {
             </div>
             <img
               className="w-10"
-              src={getWeatherImage(item.iconID)}
+              src={getWeatherImage(item.iconID, appContext!.isLightMode)}
               alt={item.description}
             />
             <h5>{uppercase(item.description)}</h5>

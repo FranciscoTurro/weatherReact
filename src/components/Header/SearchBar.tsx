@@ -39,7 +39,7 @@ export const SearchBar: React.FC = () => {
           type="search"
           autoComplete="off"
           id="default-search"
-          className="block w-full p-4 pl-10 text-sm text-white rounded-lg bg-black"
+          className="block w-full p-4 pl-10 text-sm text-black rounded-lg bg-white"
           required
         />
         <button
