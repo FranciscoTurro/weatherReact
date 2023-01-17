@@ -2,32 +2,23 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
-    <footer className="absolute bottom-0 w-full bg-custom_heavy_gray shadow md:flex md:items-center md:justify-between md:p-6">
-      <span className="text-sm sm:text-center ">
+    <footer className="absolute bottom-0 w-full flex items-center justify-between p-6">
+      <span className="text-sm">
         ©2023 Francisco Turró. No Rights Reserved.
       </span>
-      <ul className="flex flex-wrap items-center mt-3 text-sm  sm:mt-0">
+      <ul className="flex flex-wrap gap-5 items-center mt-3 text-sm">
         <li>
-          <Link
-            to={'/FAQ'}
-            className='className="mr-4 hover:underline md:mr-6 "'
-          >
+          <Link to={'/FAQ'} className="mr-4 hover:underline">
             FAQ
           </Link>
         </li>
         <li>
-          <Link
-            to={'/about'}
-            className='className="mr-4 hover:underline md:mr-6 "'
-          >
+          <Link to={'/about'} className="mr-4 hover:underline">
             About
           </Link>
         </li>
         <li>
-          <Link
-            to={'/contact'}
-            className='className="mr-4 hover:underline md:mr-6 "'
-          >
+          <Link to={'/contact'} className="mr-4 hover:underline">
             Contact
           </Link>
         </li>
