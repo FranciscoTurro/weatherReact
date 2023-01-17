@@ -22,11 +22,11 @@ export const HomePage: React.FC = () => {
   if (coordinates.latitude === 0 && coordinates.longitude === 0)
     return (
       <div className="flex flex-col items-center pt-16">
-        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+        <div className="block max-w-sm p-6 bg-custom_gray-200 border-none rounded-lg shadow-md hover:bg-custom_gray-100 dark:bg-custom_gray-700 dark:hover:bg-custom_gray-600">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight">
             We can't access your location
           </h5>
-          <p className="font-normal text-gray-700">
+          <p className="font-normal">
             Allow the browser access to your location, or manually search for a
             city on the search bar.
           </p>

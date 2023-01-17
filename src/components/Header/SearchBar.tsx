@@ -12,7 +12,7 @@ export const SearchBar: React.FC = () => {
       onSubmit={(e) => {
         e.preventDefault();
         const city = state.replace(/\s+/g, '+');
-        navigate(`/${city}`);
+        navigate(`/search/${city}`);
         setState('');
       }}
     >
