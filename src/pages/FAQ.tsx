@@ -8,14 +8,14 @@ export const FAQ = () => {
 
   return (
     <div className="text-center pt-10">
-      <p className="text-6xl">Frequently Asked Questions</p>
+      <h1 className="text-6xl">Frequently Asked Questions</h1>
       <div className="p-10">
         <button
           onClick={() => setIsOpen1(!isOpen1)}
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 rounded-t-xl"
         >
-          <span>Question 1</span>
+          <span>What was this site built with?</span>
           <svg
             className={`w-6 h-6 ${isOpen1 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -30,7 +30,12 @@ export const FAQ = () => {
         </button>
         <div className={isOpen1 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-            <p className="mb-2 ">No answer</p>
+            <p className="mb-2 ">
+              The site was programmed with Typescript. Frontend was made with
+              React, and styled with Tailwind CSS. There is no backend to this
+              site, as the weather information is fetched from the OpenWeather
+              API, using React Query.
+            </p>
           </div>
         </div>
         <button
@@ -38,7 +43,7 @@ export const FAQ = () => {
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border border-b-0"
         >
-          <span>Question 2</span>
+          <span>First non-existant filler question</span>
           <svg
             className={`w-6 h-6 ${isOpen2 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -53,7 +58,10 @@ export const FAQ = () => {
         </button>
         <div className={isOpen2 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-            <p className="mb-2 ">No answer</p>
+            <p className="mb-2 ">
+              What a question! Unfortunately, it would take me ages to answer,
+              so we'll just leave it at that.
+            </p>
           </div>
         </div>
         <button
@@ -61,7 +69,7 @@ export const FAQ = () => {
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border border-b-0"
         >
-          <span>Question 3</span>
+          <span>Second non-existant filler question</span>
           <svg
             className={`w-6 h-6 ${isOpen3 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -76,7 +84,7 @@ export const FAQ = () => {
         </button>
         <div className={isOpen3 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-            <p className="mb-2 ">No answer</p>
+            <p className="mb-2 ">I plead the fifth.</p>
           </div>
         </div>
         <button
@@ -84,7 +92,7 @@ export const FAQ = () => {
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border"
         >
-          <span>Question 4</span>
+          <span>Third non-existant filler question</span>
           <svg
             className={`w-6 h-6 ${isOpen4 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -99,7 +107,7 @@ export const FAQ = () => {
         </button>
         <div className={isOpen4 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-gray-200 dark:border-gray-700">
-            <p className="mb-2 ">No answer</p>
+            <p className="mb-2 ">I'm starting to get uncomfortable here.</p>
           </div>
         </div>
       </div>

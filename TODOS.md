@@ -1,3 +1,0 @@
-# Todos:
-
-- deploy the thing
