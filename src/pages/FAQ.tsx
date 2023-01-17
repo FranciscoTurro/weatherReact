@@ -43,7 +43,7 @@ export const FAQ = () => {
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border border-b-0"
         >
-          <span>First non-existant filler question</span>
+          <span>Are you aware that your API keys are visible?</span>
           <svg
             className={`w-6 h-6 ${isOpen2 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -59,8 +59,11 @@ export const FAQ = () => {
         <div className={isOpen2 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
             <p className="mb-2 ">
-              What a question! Unfortunately, it would take me ages to answer,
-              so we'll just leave it at that.
+              Unfortunately yes. At first I believed that just setting up a .env
+              file with my keys would be enough, but I later understood that it
+              runs on Node.js, meaning I can't use it on a React app. Still,
+              they are free API keys and they shouldn't pose much of a security
+              risk.
             </p>
           </div>
         </div>
@@ -69,7 +72,7 @@ export const FAQ = () => {
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border border-b-0"
         >
-          <span>Second non-existant filler question</span>
+          <span>First non-existant filler question</span>
           <svg
             className={`w-6 h-6 ${isOpen3 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -84,7 +87,10 @@ export const FAQ = () => {
         </button>
         <div className={isOpen3 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-            <p className="mb-2 ">I plead the fifth.</p>
+            <p className="mb-2 ">
+              What a question! Unfortunately, it would take me ages to answer,
+              so we'll just leave it at that.
+            </p>
           </div>
         </div>
         <button
@@ -92,7 +98,7 @@ export const FAQ = () => {
           type="button"
           className="border-gray-200 bg-custom_gray-200 hover:bg-custom_gray-100 dark:bg-custom_gray-800 dark:hover:bg-custom_gray-700 dark:border-gray-700 flex items-center justify-between w-full p-5 font-medium text-left border"
         >
-          <span>Third non-existant filler question</span>
+          <span> Second non-existant filler question</span>
           <svg
             className={`w-6 h-6 ${isOpen4 ? 'rotate-180' : ''} shrink-0`}
             fill="currentColor"
@@ -107,7 +113,7 @@ export const FAQ = () => {
         </button>
         <div className={isOpen4 ? '' : 'hidden'}>
           <div className="p-5 font-light border border-gray-200 dark:border-gray-700">
-            <p className="mb-2 ">I'm starting to get uncomfortable here.</p>
+            <p className="mb-2 ">I plead the fifth.</p>
           </div>
         </div>
       </div>
