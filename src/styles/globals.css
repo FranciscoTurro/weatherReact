@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
 body {
   @apply dark:bg-custom_gray-900 dark:text-white bg-white text-black;

@@ -34,6 +34,7 @@ export const SearchBar: React.FC = () => {
           </svg>
         </div>
         <input
+          placeholder="Search for a city"
           onChange={(e) => setState(e.target.value)}
           value={state}
           type="search"

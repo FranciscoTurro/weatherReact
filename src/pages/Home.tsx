@@ -4,7 +4,7 @@ import { BarLoader } from 'react-spinners';
 import { fetchCityName } from '../api/fetchCityName';
 import { Weather } from '../components/Weather/Weather';
 
-export const HomePage: React.FC = () => {
+export const Home: React.FC = () => {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
 
   useEffect(() => {
